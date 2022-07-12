@@ -4,6 +4,11 @@
 @import url(jquery.fancybox.css);
 @import url(lightgallery.min.css);
 @import url(settings.css);
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
 body {
 	font-size: 16px;
 	line-height: 1.6;
@@ -282,7 +287,6 @@ a.absolute {
 	cursor: pointer;
 }
 .modal-callback {
-	display: none;
 	position: fixed;
 	top: 20%;
 	left: 50%;
@@ -853,9 +857,13 @@ hr.white {
 	height: 450px;
 }
 .top-slider .item {
+	display: none;
 	overflow: hidden;
 	height: 450px;
 	position: relative;
+}
+.top-slider .item.active {
+	display: block;
 }
 .top-slider .item:before {
 	content: "";
@@ -1021,9 +1029,6 @@ video#video_background {
 .accordeon .element.active .title:before {
 	background: url(../images/minus.png) 50% 50% no-repeat #333;
 }
-.accordeon > div:first-of-type .element-content {
-	display: block;
-}
 .accordeon .element .title:hover:before {
 	background-color: #333;
 }
@@ -1032,6 +1037,9 @@ video#video_background {
 }
 .accordeon > div:last-of-type {
 	margin-bottom: 0;
+}
+.accordeon .element-content.accordeon-active{
+	display: block;
 }
 /************************* end accordeon **************************/
 
@@ -1072,15 +1080,20 @@ video#video_background {
 .services-arrow {
 	display: flex;
 	justify-content: center;
+	flex-wrap: nowrap;
 }
-
+.btn-left,
+.btn-right{
+	border: none;
+	outline: none;
+	background: transparent;
+}
 .arrow-right,
 .arrow-left {
 	width: 30px;
 	height: 30px;
 	cursor: pointer;
 }
-
 .arrow-left {
 	transform: rotate(180deg);
 	margin-right: 20px;
@@ -1089,10 +1102,18 @@ video#video_background {
 .arrow-right {
 	margin-left: 20px;
 }
-
-.services-section .element {
-	margin-bottom: 20px;
+.services-elements{
+	overflow: hidden;
 }
+.services-carousel{
+	display: flex;
+	
+}
+.services-section .element {
+	margin: 0 5px 20px;
+	min-width: 30%;	
+}
+
 .services-section .element .element-content {
 	padding: 20px;
 	background: #fff;
