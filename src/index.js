@@ -6,6 +6,7 @@ import accordion from './modules/accordion'
 import validate from './modules/validate'
 import sendForm from './modules/sendForm'
 import carousel from './modules/carousel'
+import mobailMenu from './modules/mobailMenu'
 
 modalCallback()
 scroll()
@@ -13,5 +14,6 @@ slider()
 scrollUp()
 accordion()
 validate()
-sendForm()
 carousel()
+mobailMenu()
+sendForm()

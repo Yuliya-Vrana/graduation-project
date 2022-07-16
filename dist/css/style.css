@@ -1080,13 +1080,6 @@ video#video_background {
 .services-arrow {
 	display: flex;
 	justify-content: center;
-	flex-wrap: nowrap;
-}
-.btn-left,
-.btn-right{
-	border: none;
-	outline: none;
-	background: transparent;
 }
 .arrow-right,
 .arrow-left {
@@ -1107,11 +1100,12 @@ video#video_background {
 }
 .services-carousel{
 	display: flex;
+	transition: all ease 1s;
 	
-}
+} 
 .services-section .element {
 	margin: 0 5px 20px;
-	min-width: 30%;	
+	min-width: 32%;
 }
 
 .services-section .element .element-content {

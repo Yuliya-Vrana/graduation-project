@@ -1,15 +1,15 @@
 const carousel = () => {
     let sliderToShow = 3
     const sliderToScroll = 1
-
     const container = document.querySelector('.services-elements')
     const track = container.querySelector('.services-carousel')
     const elements = track.querySelectorAll('.element')
 
-    const btnLeft = document.querySelector('.btn-left')
-    const btnRight = document.querySelector('.btn-right')
+    const arrowLeft = document.querySelector('.arrow-left')
+    const arrowRight = document.querySelector('.arrow-right')
 
     const clientWidthScreen = screen.width
+    
   
     if(clientWidthScreen >= 1250){
         sliderToShow = 3
@@ -20,48 +20,41 @@ const carousel = () => {
     }
 
     const elemWidth = Math.floor(container.clientWidth / sliderToShow)
-    const movePosition = sliderToScroll * elemWidth
-
-    let position = 0
+    //const movePosition = sliderToScroll * elemWidth
+    let position = -elemWidth
+    
     
     elements.forEach(elem => { 
         elem.style.minWidth = `calc(${elemWidth}px - 7px)`
     })
 
     const setPosition = () => {
-        track.style.transform = `translateX(${position}px)`
-    }
-
-    const checkBtn = () => {
+   
         let scroll = - (elements.length - sliderToShow) * elemWidth
-        
-        if(position == 0){
-          btnLeft.setAttribute('disabled', 'disabled')  
-        }else {
-            btnLeft.removeAttribute('disabled')
-        }
-        
-        if(position == scroll){
-            btnRight.setAttribute('disabled', 'disabled')  
-          }else {
-            btnRight.removeAttribute('disabled')
-          }
 
+        if(position > 0){
+            position = scroll
+        }
+
+        if(position < scroll){
+            position = 0
+        }
+
+        track.style.transform = `translateX(${position}px)`      
     }
 
-    btnLeft.addEventListener('click', () => {
-        position += Math.floor(movePosition)
+    
+    arrowLeft.addEventListener('click', () => {
+        position += Math.floor(elemWidth)
         setPosition()
-        checkBtn()        
+
     })
 
-    btnRight.addEventListener('click', () => {
-        position -= Math.floor(movePosition)
-        setPosition() 
-        checkBtn()   
-    })
+    arrowRight.addEventListener('click', () => {
+        position -= Math.floor(elemWidth)
+        setPosition()
 
-    checkBtn()
+    })
 }
 
 export default carousel

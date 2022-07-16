@@ -22,10 +22,10 @@ const sendForm = (someElem = []) => {
             method: 'POST',
             body: JSON.stringify(data),
             headers: {
-                'ContentType': 'application/json'
+                'Content-Type': 'application/json'
             }
         })
-        return await res.json()
+        return await res.json() 
     }
 
     const submitForm = () => {

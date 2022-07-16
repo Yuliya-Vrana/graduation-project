@@ -3,7 +3,7 @@ const validate = () => {
     const tel = document.getElementsByName('tel')
 
     fio.forEach(item => {
-        item.addEventListener('input', (e) => item.value = e.target.value.replace(/[^а-яА-Я]/gi, ''))
+        item.addEventListener('input', (e) => item.value = e.target.value.replace(/[^а-яА-Я\s]/gi, ''))
     }) 
     tel.forEach((item) => {
         item.addEventListener('input', (e) => item.value = e.target.value.replace(/[^+\d]/g, ''))
