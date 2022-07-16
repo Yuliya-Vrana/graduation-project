@@ -1,6 +1,5 @@
 const carousel = () => {
     let sliderToShow = 3
-    const sliderToScroll = 1
     const container = document.querySelector('.services-elements')
     const track = container.querySelector('.services-carousel')
     const elements = track.querySelectorAll('.element')
@@ -10,7 +9,6 @@ const carousel = () => {
 
     const clientWidthScreen = screen.width
     
-  
     if(clientWidthScreen >= 1250){
         sliderToShow = 3
     } else if(clientWidthScreen < 1250 && clientWidthScreen >= 950){
@@ -20,10 +18,9 @@ const carousel = () => {
     }
 
     const elemWidth = Math.floor(container.clientWidth / sliderToShow)
-    //const movePosition = sliderToScroll * elemWidth
+
     let position = -elemWidth
-    
-    
+     
     elements.forEach(elem => { 
         elem.style.minWidth = `calc(${elemWidth}px - 7px)`
     })
